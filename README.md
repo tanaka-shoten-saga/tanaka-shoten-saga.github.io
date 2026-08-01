@@ -2,7 +2,7 @@
 
 佐賀駅から徒歩4分、炭火と和牛の焼肉店の公式サイトです。
 
-**公開URL** — https://jumpei0530.github.io/tanaka-shoten/
+**公開URL** — https://tanaka-shoten-saga.github.io/
 
 | | |
 |---|---|

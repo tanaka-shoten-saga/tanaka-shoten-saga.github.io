@@ -4,4 +4,4 @@ User-agent: *
 Allow: /
 
 # ⚠️ 公開ドメイン未定。本番URLが決まったら下行を実URLに置換すること
-Sitemap: https://jumpei0530.github.io/tanaka-shoten/sitemap.xml
+Sitemap: https://tanaka-shoten-saga.github.io/sitemap.xml
