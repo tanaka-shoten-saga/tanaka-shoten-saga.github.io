@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>炭火焼肉 田中商店｜佐賀駅徒歩4分の和牛焼肉 — TANAKA SHOTEN</title>
+  <meta name="description" content="炭火焼肉 田中商店 — 佐賀駅から徒歩4分、全席炭火の和牛焼肉店。60日熟成タン・希少部位・自家製キムチが名物。22席・全席禁煙・年中無休 17:00〜24:00。Charcoal wagyu yakiniku, 4 min from Saga Station.">
+
+  <link rel="canonical" href="https://jumpei0530.github.io/tanaka-shoten/">
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- OGP -->
+  <meta property="og:type" content="restaurant">
+  <meta property="og:site_name" content="炭火焼肉 田中商店 TANAKA SHOTEN">
+  <meta property="og:title" content="炭火焼肉 田中商店｜佐賀駅徒歩4分の和牛焼肉">
+  <meta property="og:description" content="全席炭火の和牛焼肉。60日熟成タン・希少部位・自家製キムチ。佐賀駅徒歩4分・22席。">
+  <meta property="og:url" content="https://jumpei0530.github.io/tanaka-shoten/">
+  <meta property="og:image" content="https://jumpei0530.github.io/tanaka-shoten/assets/images/hero-slider-1.jpg">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- fonts (本番用) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --paper: #faf7f2;
+      --paper-2: #f2ebe0;
+      --ink: #1e1b18;
+      --sub: #6d6459;
+      --line: #e6ded1;
+      --accent: #8f2d24;
+      --accent-dark: #6f2019;
+      --serif: "Shippori Mincho", "Yu Mincho", "Hiragino Mincho ProN", serif;
+      --sans: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", system-ui, sans-serif;
+      --wrap: 1080px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 400;
+      line-height: 1.9;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    .wrap { max-width: var(--wrap); margin-inline: auto; padding-inline: 24px; }
+
+    .label {
+      font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--accent); font-weight: 700; display: inline-block;
+    }
+    .label::before {
+      content: ""; display: inline-block; width: 22px; height: 1px;
+      background: var(--accent); vertical-align: middle; margin-right: 10px; margin-bottom: 3px;
+    }
+    h2.heading {
+      font-family: var(--serif); font-weight: 600; letter-spacing: 0.04em;
+      font-size: clamp(1.6rem, 1rem + 2.4vw, 2.4rem); line-height: 1.5;
+      margin: 18px 0 0; text-wrap: balance;
+    }
+    .section { padding-block: clamp(64px, 5vw + 40px, 110px); }
+    .section.alt { background: var(--paper-2); }
+    .lead { color: var(--sub); max-width: 640px; margin-top: 22px; }
+    .center { text-align: center; }
+    .center .label::before { display: none; }
+    .center .label { letter-spacing: 0.4em; }
+
+    /* ---------- header ---------- */
+    header {
+      position: fixed; inset: 0 0 auto; z-index: 50;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px clamp(16px, 4vw, 40px);
+      transition: background .4s, padding .4s, box-shadow .4s;
+    }
+    header.solid {
+      background: rgba(250,247,242,.92); backdrop-filter: blur(8px);
+      padding-block: 14px; box-shadow: 0 1px 0 var(--line);
+    }
+    .brand { font-family: var(--serif); font-weight: 600; font-size: 20px; letter-spacing: .12em; color: #fff; transition: color .4s; }
+    .brand small { display: block; font-family: var(--sans); font-weight: 500; font-size: 9.5px; letter-spacing: .38em; opacity: .85; margin-top: 2px; }
+    header.solid .brand { color: var(--ink); }
+    nav.main { display: flex; align-items: center; gap: 30px; }
+    nav.main a { font-size: 12px; letter-spacing: .16em; color: #fff; transition: color .4s, opacity .25s; }
+    header.solid nav.main a { color: var(--ink); }
+    nav.main a:hover { opacity: .6; }
+    nav.main a.res {
+      color: #fff; background: var(--accent); padding: 9px 20px; letter-spacing: .18em;
+      font-weight: 700;
+    }
+    nav.main a.res:hover { background: var(--accent-dark); opacity: 1; }
+    header.solid nav.main a.res { color: #fff; }
+    .burger { display: none; width: 30px; height: 20px; position: relative; cursor: pointer; background: none; border: 0; }
+    .burger span { position: absolute; left: 0; width: 100%; height: 2px; background: #fff; transition: .3s; }
+    header.solid .burger span { background: var(--ink); }
+    .burger span:nth-child(1){ top: 0; } .burger span:nth-child(2){ top: 9px; } .burger span:nth-child(3){ top: 18px; }
+
+    /* ---------- hero ---------- */
+    .hero { position: relative; min-height: 100svh; display: grid; align-items: end; color: #fff; }
+    .hero-bg { position: absolute; inset: 0; z-index: -2; }
+    .hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+    .hero::after { content: ""; position: absolute; inset: 0; z-index: -1;
+      background: linear-gradient(to bottom, rgba(0,0,0,.35) 0%, rgba(0,0,0,.15) 40%, rgba(0,0,0,.65) 100%); }
+    .hero .wrap { padding-bottom: clamp(70px, 10vh, 130px); }
+    .hero .eyebrow { font-size: 11px; letter-spacing: .4em; text-transform: uppercase; opacity: .9; }
+    .hero h1 {
+      font-family: var(--serif); font-weight: 600; letter-spacing: .06em;
+      font-size: clamp(2.6rem, 1.4rem + 5.5vw, 5rem); line-height: 1.28; margin: 20px 0 16px;
+      text-shadow: 0 2px 30px rgba(0,0,0,.4);
+    }
+    .hero p.sub { font-size: clamp(14px, 12px + .4vw, 17px); letter-spacing: .04em; opacity: .95; max-width: 560px; }
+    .hero .cta { margin-top: 34px; display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; font-size: 12px; letter-spacing: .2em; font-weight: 700;
+      padding: 15px 34px; text-transform: uppercase; transition: .25s; cursor: pointer;
+    }
+    .btn-accent { background: var(--accent); color: #fff; }
+    .btn-accent:hover { background: var(--accent-dark); }
+    .btn-outline { border: 1px solid rgba(255,255,255,.7); color: #fff; }
+    .btn-outline:hover { background: #fff; color: var(--ink); }
+    .btn-ghost { border: 1px solid var(--ink); color: var(--ink); }
+    .btn-ghost:hover { background: var(--ink); color: var(--paper); }
+
+    /* ---------- concept / features ---------- */
+    .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; margin-top: 56px; }
+    .feature img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+    .feature h3 { font-family: var(--serif); font-weight: 600; font-size: 19px; margin: 18px 0 8px; letter-spacing: .04em; }
+    .feature p { color: var(--sub); font-size: 13.5px; line-height: 1.85; }
+    .feature .en { font-size: 10.5px; letter-spacing: .3em; color: var(--accent); text-transform: uppercase; }
+
+    /* ---------- menu ---------- */
+    .menu-list { margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 4px 60px; }
+    .mi { display: flex; align-items: baseline; gap: 14px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+    .mi .nm { font-family: var(--serif); font-size: 18px; font-weight: 500; letter-spacing: .03em; }
+    .mi .en { display: block; font-family: var(--sans); font-size: 11px; letter-spacing: .12em; color: var(--sub); margin-top: 3px; text-transform: uppercase; }
+    .mi .dots { flex: 1; border-bottom: 1px dotted var(--line); transform: translateY(-4px); }
+    .mi .pr { font-family: var(--serif); font-size: 17px; white-space: nowrap; }
+    .menu-note { margin-top: 30px; color: var(--sub); font-size: 13px; }
+    .menu-note a { color: var(--accent); border-bottom: 1px solid currentColor; }
+
+    /* ---------- signature ---------- */
+    .signature { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: clamp(30px, 5vw, 70px); }
+    .signature img { width: 100%; aspect-ratio: 5/4; object-fit: cover; }
+    .signature .price { font-family: var(--serif); font-size: 26px; margin-top: 22px; }
+    .signature .price small { font-size: 13px; color: var(--sub); font-family: var(--sans); margin-left: 8px; }
+
+    /* ---------- gallery ---------- */
+    .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .gallery img { width: 100%; aspect-ratio: 1/1; object-fit: cover; }
+
+    /* ---------- reviews ---------- */
+    .rev-head { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+    .stars { color: var(--accent); font-family: var(--serif); font-size: 20px; }
+    .reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 46px; }
+    .review { border-top: 2px solid var(--accent); padding-top: 22px; }
+    .review blockquote { font-family: var(--serif); font-size: 16px; line-height: 1.9; letter-spacing: .02em; }
+    .review .by { margin-top: 16px; font-size: 12px; letter-spacing: .1em; color: var(--sub); }
+
+    /* ---------- access ---------- */
+    .access { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 64px); }
+    .info dl { display: grid; grid-template-columns: 116px 1fr; row-gap: 0; }
+    .info dt { padding: 15px 0; border-bottom: 1px solid var(--line); font-size: 12px; letter-spacing: .12em; color: var(--accent); font-weight: 700; }
+    .info dd { padding: 15px 0; border-bottom: 1px solid var(--line); }
+    .access .map { display: flex; flex-direction: column; justify-content: center; }
+    .access .map img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+
+    /* ---------- reserve ---------- */
+    .reserve-box { background: var(--ink); color: var(--paper); text-align: center; padding: clamp(48px, 6vw, 80px) 24px; }
+    .reserve-box .label { color: #d8a29b; }
+    .reserve-box h2 { color: var(--paper); }
+    .reserve-box .lead { color: rgba(250,247,242,.72); margin-inline: auto; }
+    .reserve-actions { margin-top: 36px; display: flex; flex-direction: column; align-items: center; gap: 18px; }
+    .reserve-box .btn-accent { min-width: 300px; }
+    details.gourmet { max-width: 420px; width: 100%; }
+    details.gourmet summary {
+      list-style: none; cursor: pointer; border: 1px solid rgba(250,247,242,.4);
+      color: var(--paper); padding: 14px 22px; font-size: 13px; letter-spacing: .08em;
+    }
+    details.gourmet summary::-webkit-details-marker { display: none; }
+    details.gourmet[open] summary { border-color: var(--accent); }
+    .gourmet .links { display: flex; flex-direction: column; gap: 12px; margin-top: 14px; }
+    .gourmet .links a { color: #e7c7c1; font-size: 13.5px; letter-spacing: .06em; padding: 4px; }
+    .gourmet .links a:hover { color: #fff; }
+
+    /* ---------- faq ---------- */
+    .faq details { border-bottom: 1px solid var(--line); }
+    .faq summary { list-style: none; cursor: pointer; padding: 22px 40px 22px 0; position: relative;
+      font-family: var(--serif); font-size: 16.5px; letter-spacing: .02em; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "＋"; position: absolute; right: 4px; top: 20px; color: var(--accent); font-size: 18px; }
+    .faq details[open] summary::after { content: "−"; }
+    .faq .ans { padding: 0 0 24px; color: var(--sub); font-size: 14px; line-height: 1.95; }
+
+    /* ---------- footer ---------- */
+    footer { background: #16130f; color: #cfc6b8; padding-block: 64px 30px; }
+    footer .brand { color: #fff; font-size: 22px; }
+    footer .cols { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; margin-bottom: 44px; }
+    footer address { font-style: normal; margin-top: 20px; line-height: 2; font-size: 13.5px; }
+    footer h4 { font-size: 11px; letter-spacing: .2em; color: #8f857a; text-transform: uppercase; margin-bottom: 14px; }
+    footer .fnav a { display: block; padding: 5px 0; font-size: 13.5px; }
+    footer .fnav a:hover { color: #fff; }
+    footer .copy { border-top: 1px solid #2a251f; padding-top: 22px; font-size: 11.5px; letter-spacing: .06em; color: #7d7266; }
+
+    /* ---------- mobile nav drawer ---------- */
+    .drawer { position: fixed; inset: 0; z-index: 60; background: rgba(20,18,15,.98); color: #fff;
+      display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 26px;
+      opacity: 0; pointer-events: none; transition: .35s; }
+    .drawer.open { opacity: 1; pointer-events: auto; }
+    .drawer a { font-family: var(--serif); font-size: 22px; letter-spacing: .1em; }
+    .drawer .close { position: absolute; top: 24px; right: 26px; font-size: 30px; background: none; border: 0; color: #fff; cursor: pointer; }
+    .drawer .di { font-size: 13px; color: #b9ab9c; letter-spacing: .1em; margin-top: 14px; font-family: var(--sans); }
+
+    @media (max-width: 860px) {
+      nav.main { display: none; }
+      .burger { display: block; }
+      .features, .reviews { grid-template-columns: 1fr; }
+      .menu-list { grid-template-columns: 1fr; gap: 0; }
+      .signature { grid-template-columns: 1fr; }
+      .access { grid-template-columns: 1fr; }
+      .gallery { grid-template-columns: repeat(2, 1fr); }
+      footer .cols { grid-template-columns: 1fr; gap: 30px; }
+    }
+  </style>
+
+  <!-- 構造化データ: Restaurant -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "炭火焼肉 田中商店",
+    "alternateName": "TANAKA SHOTEN",
+    "url": "https://jumpei0530.github.io/tanaka-shoten/",
+    "image": "https://jumpei0530.github.io/tanaka-shoten/assets/images/hero-slider-1.jpg",
+    "description": "佐賀駅から徒歩4分、全席炭火の和牛焼肉店。熟成タン・希少部位・自家製キムチが名物。22席・全席禁煙。",
+    "servesCuisine": ["Yakiniku", "Japanese BBQ", "焼肉"],
+    "priceRange": "¥5,000–¥6,000",
+    "currenciesAccepted": "JPY",
+    "paymentAccepted": "Cash, Credit Card, QR Code Payment",
+    "telephone": "+81-50-8888-1239",
+    "smokingAllowed": false,
+    "acceptsReservations": "True",
+    "address": { "@type": "PostalAddress", "streetAddress": "駅南本町3-8 草場ビル2F", "addressLocality": "佐賀市", "addressRegion": "佐賀県", "postalCode": "840-0816", "addressCountry": "JP" },
+    "geo": { "@type": "GeoCoordinates", "latitude": 33.261586692125825, "longitude": 130.29826986680985 },
+    "openingHoursSpecification": [ { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "17:00", "closes": "24:00" } ],
+    "hasMenu": {
+      "@type": "Menu", "url": "https://jumpei0530.github.io/tanaka-shoten/#menu",
+      "hasMenuSection": { "@type": "MenuSection", "name": "Signature & Grill", "hasMenuItem": [
+        { "@type": "MenuItem", "name": "Aged Beef Tongue, Salt (熟成タン塩)", "offers": { "@type": "Offer", "price": "1694", "priceCurrency": "JPY" } },
+        { "@type": "MenuItem", "name": "Green-Onion Tongue Wrap (葱包みタン)", "offers": { "@type": "Offer", "price": "1254", "priceCurrency": "JPY" } },
+        { "@type": "MenuItem", "name": "Wagyu Lean Cut (和牛赤身)", "offers": { "@type": "Offer", "price": "1607", "priceCurrency": "JPY" } },
+        { "@type": "MenuItem", "name": "Wagyu Horumon (和牛ホルモン)", "offers": { "@type": "Offer", "price": "825", "priceCurrency": "JPY" } },
+        { "@type": "MenuItem", "name": "House-Made Kimchi Sampler, 3 kinds (キムチ3種盛り)", "offers": { "@type": "Offer", "price": "957", "priceCurrency": "JPY" } },
+        { "@type": "MenuItem", "name": "Morioka Cold Noodles (盛岡冷麺)", "offers": { "@type": "Offer", "price": "759", "priceCurrency": "JPY" } }
+      ] }
+    },
+    "sameAs": [ "https://www.instagram.com/tanakashouten_yakiniku/", "https://tabelog.com/saga/A4101/A410101/41008050/", "https://r.gnavi.co.jp/g25c5gxk0000/", "https://www.hotpepper.jp/strJ003850082/" ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+      { "@type": "Question", "name": "Do I need a reservation?", "acceptedAnswer": { "@type": "Answer", "text": "With only 22 seats, booking ahead is recommended. Reserve by phone at 050-8888-1239." } },
+      { "@type": "Question", "name": "Is there a menu in English or other languages?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. In-store menus are available in English, Korean, and Chinese (both Simplified and Traditional)." } },
+      { "@type": "Question", "name": "What are your opening hours? Are you ever closed?", "acceptedAnswer": { "@type": "Answer", "text": "Open every day, 17:00–24:00 (last order 23:00). No regular closing days." } },
+      { "@type": "Question", "name": "Can I pay by credit card or QR payment?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Cash, credit cards (VISA, Mastercard, JCB, AMEX), and QR & e-money payments (PayPay, iD, QUICPay) are all accepted." } },
+      { "@type": "Question", "name": "Is the restaurant non-smoking?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, the entire restaurant is fully non-smoking." } },
+      { "@type": "Question", "name": "Can I dine alone?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Counter seats are perfect for solo diners, and solo guests are always welcome." } },
+      { "@type": "Question", "name": "Can I book the whole restaurant for a group?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, private hire is available for groups of 18 to 22 guests." } },
+      { "@type": "Question", "name": "How do I get there and is there parking?", "acceptedAnswer": { "@type": "Answer", "text": "A 4-minute walk from the south exit of JR Saga Station. No private parking, but coin parking is available nearby." } },
+      { "@type": "Question", "name": "What is the restaurant known for?", "acceptedAnswer": { "@type": "Answer", "text": "Aged beef tongue matured for around two months, rare wagyu cuts, and house-made kimchi, all grilled over real charcoal." } }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <header id="hdr">
+    <a href="#top" class="brand">田中商店<small>TANAKA SHOTEN</small></a>
+    <nav class="main">
+      <a href="#menu">MENU</a>
+      <a href="#about">ABOUT</a>
+      <a href="#access">ACCESS</a>
+      <a href="#faq">FAQ</a>
+      <a href="#reserve" class="res">RESERVE 予約</a>
+    </nav>
+    <button class="burger" aria-label="メニュー" id="burger"><span></span><span></span><span></span></button>
+  </header>
+
+  <div class="drawer" id="drawer">
+    <button class="close" id="close" aria-label="閉じる">×</button>
+    <a href="#menu">MENU お品書き</a>
+    <a href="#about">ABOUT 田中商店について</a>
+    <a href="#access">ACCESS アクセス</a>
+    <a href="#faq">FAQ よくあるご質問</a>
+    <a href="#reserve">RESERVE ご予約</a>
+    <p class="di">佐賀駅 徒歩4分 ／ 17:00–24:00 ／ 年中無休</p>
+    <a href="tel:+81508881239" class="di" style="color:#e7c7c1">TEL 050-8888-1239</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-bg"><img src="./assets/images/hero-slider-1.jpg" alt="炭火で焼く九州産和牛"></div>
+    <div class="wrap">
+      <p class="eyebrow">Saga · Charcoal Wagyu Yakiniku</p>
+      <h1>炭火と、<br>佐賀の和牛。</h1>
+      <p class="sub">佐賀駅から徒歩4分。ガスも電気も使わない、全席本物の炭火。<br>The Saga wagyu you came to Japan for — grilled over real charcoal.</p>
+      <div class="cta">
+        <a href="#reserve" class="btn btn-accent">ご予約 RESERVE</a>
+        <a href="#menu" class="btn btn-outline">お品書き MENU</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="wrap center">
+      <span class="label">About</span>
+      <h2 class="heading">佐賀駅から徒歩4分、<br>炭火に絞った二十二席。</h2>
+      <p class="lead" style="margin-inline:auto;">
+        二階の隠れ家。すべての席が本物の炭火です。熟成させた牛タン、和牛の希少部位、
+        八種の自家製キムチ。名物を、いちばん美味しい焼き方で。全席禁煙・お一人様も歓迎です。
+      </p>
+
+      <div class="features">
+        <div class="feature">
+          <img src="./assets/images/about-abs-image.jpg" alt="本物の炭火">
+          <p class="en">Real Charcoal</p>
+          <h3>本物の炭火</h3>
+          <p>ガスも電気プレートも使いません。すべての卓が炭火。香ばしさが違います。</p>
+        </div>
+        <div class="feature">
+          <img src="./assets/images/special-dish-banner.jpg" alt="60日熟成タン">
+          <p class="en">60-Day Aged Tongue</p>
+          <h3>熟成タン</h3>
+          <p>タン元のみを厚切りで。約二か月かけて熟成させた、名物の一皿です。</p>
+        </div>
+        <div class="feature">
+          <img src="./assets/images/service-3.jpg" alt="自家製キムチ">
+          <p class="en">House-made Kimchi</p>
+          <h3>自家製キムチ</h3>
+          <p>白菜からアボカドまで。ヤンニョムから手づくりする、八種のキムチ。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="section alt" id="menu">
+    <div class="wrap">
+      <div class="center">
+        <span class="label">Menu</span>
+        <h2 class="heading">お品書き</h2>
+      </div>
+      <div class="menu-list">
+        <div class="mi"><span class="nm">熟成タン塩<span class="en">Aged Beef Tongue, Salt</span></span><span class="dots"></span><span class="pr">¥1,694</span></div>
+        <div class="mi"><span class="nm">葱包みタン<span class="en">Green-Onion Tongue Wrap</span></span><span class="dots"></span><span class="pr">¥1,254</span></div>
+        <div class="mi"><span class="nm">和牛赤身<span class="en">Wagyu Lean Cut</span></span><span class="dots"></span><span class="pr">¥1,607</span></div>
+        <div class="mi"><span class="nm">和牛ホルモン<span class="en">Wagyu Horumon</span></span><span class="dots"></span><span class="pr">¥825〜</span></div>
+        <div class="mi"><span class="nm">自家製キムチ3種盛り<span class="en">House-made Kimchi, 3 kinds</span></span><span class="dots"></span><span class="pr">¥957</span></div>
+        <div class="mi"><span class="nm">盛岡冷麺<span class="en">Morioka Cold Noodles</span></span><span class="dots"></span><span class="pr">¥759</span></div>
+      </div>
+      <p class="menu-note">
+        ※価格は税込。上記は一例です。飲み放題付コースは ¥5,500〜。
+        全品は <a href="https://r.gnavi.co.jp/g25c5gxk0000/menu1/" target="_blank" rel="noopener">ぐるなびのメニュー</a> をご覧ください。
+      </p>
+    </div>
+  </section>
+
+  <!-- SIGNATURE -->
+  <section class="section">
+    <div class="wrap signature">
+      <img src="./assets/images/special-dish-banner.jpg" alt="60日熟成の厚切りタン">
+      <div>
+        <span class="label">Signature</span>
+        <h2 class="heading">60日熟成、<br>厚切りの牛タン。</h2>
+        <p class="lead">タン元だけを選び、チルドのまま二か月かけて熟成。密度が高く、甘い。炭火のためにある一皿で、いちばん口コミに挙がる名物です。</p>
+        <p class="price">¥1,694 <small>／ 超厚切り生牛タン（税込）</small></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="center" style="margin-bottom:44px;">
+        <span class="label">Gallery</span>
+        <h2 class="heading">炭火の、その先へ</h2>
+      </div>
+      <div class="gallery">
+        <img src="./assets/images/hero-slider-2.jpg" alt="厚切りの熟成タン">
+        <img src="./assets/images/event-1.jpg" alt="炭火で焼く和牛">
+        <img src="./assets/images/hero-slider-3.jpg" alt="自家製キムチの盛り合わせ">
+        <img src="./assets/images/service-2.jpg" alt="和牛の希少部位">
+        <img src="./assets/images/about-banner.jpg" alt="店内の様子">
+        <img src="./assets/images/event-3.jpg" alt="卓上の炭火焼肉">
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section" id="reviews">
+    <div class="wrap">
+      <div class="rev-head">
+        <span class="label">Reviews</span>
+        <span class="stars">★ 4.8</span>
+        <span style="color:var(--sub);font-size:13px;">Google・143件のクチコミ</span>
+      </div>
+      <div class="reviews">
+        <div class="review">
+          <blockquote>お肉も料理もどれも美味しい。なによりスタッフさんの対応が素晴らしい。</blockquote>
+          <p class="by">amupa さん — 食べログ ★4.5</p>
+        </div>
+        <div class="review">
+          <blockquote>特にハラミとタン。お値段も安いし、店内がこじんまりしているのも好きでした。</blockquote>
+          <p class="by">しめじ3163 さん — 食べログ ★5.0</p>
+        </div>
+        <div class="review">
+          <blockquote>厚切り牛タンにタレはらみ。二階からの景色を見ながら、ゆっくり焼肉。</blockquote>
+          <p class="by">Night King さん — 食べログ</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCESS -->
+  <section class="section alt" id="access">
+    <div class="wrap">
+      <div class="center" style="margin-bottom:44px;">
+        <span class="label">Access &amp; Info</span>
+        <h2 class="heading">店舗案内</h2>
+      </div>
+      <div class="access">
+        <div class="info">
+          <dl>
+            <dt>住所</dt><dd>〒840-0816 佐賀県佐賀市駅南本町3-8 草場ビル2F</dd>
+            <dt>アクセス</dt><dd>JR佐賀駅 南口より徒歩4分（駐車場なし・近隣コインP）</dd>
+            <dt>電話</dt><dd><a href="tel:+81508881239" style="color:var(--accent)">050-8888-1239</a></dd>
+            <dt>営業時間</dt><dd>17:00〜24:00（L.O. 23:00）</dd>
+            <dt>定休日</dt><dd>年中無休</dd>
+            <dt>席数</dt><dd>22席（カウンター＋ソファー・個室なし・貸切18〜22名）</dd>
+            <dt>お支払い</dt><dd>現金・カード・QR / 電子マネー可</dd>
+            <dt>その他</dt><dd>全席禁煙・お一人様歓迎・英語/韓国語/中国語メニューあり</dd>
+          </dl>
+        </div>
+        <div class="map">
+          <a href="https://www.google.com/maps/search/?api=1&query=%E7%94%B0%E4%B8%AD%E5%95%86%E5%BA%97+%E7%82%AD%E7%81%AB%E7%84%BC%E8%82%89+%E4%BD%90%E8%B3%80" target="_blank" rel="noopener">
+            <img src="./assets/images/about-banner.jpg" alt="田中商店の場所（Googleマップで開く）">
+          </a>
+          <a href="https://www.google.com/maps/search/?api=1&query=%E7%94%B0%E4%B8%AD%E5%95%86%E5%BA%97+%E7%82%AD%E7%81%AB%E7%84%BC%E8%82%89+%E4%BD%90%E8%B3%80" target="_blank" rel="noopener" class="btn btn-ghost" style="margin-top:16px;align-self:flex-start;">Googleマップで見る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESERVE -->
+  <section id="reserve">
+    <div class="reserve-box">
+      <span class="label">Reserve</span>
+      <h2 class="heading">ご予約</h2>
+      <p class="lead">席は二十二だけ。ご予約はお早めにどうぞ。<br>Booking ahead is the local move — only 22 seats.</p>
+      <div class="reserve-actions">
+        <a href="https://www.google.com/maps/search/?api=1&query=%E7%94%B0%E4%B8%AD%E5%95%86%E5%BA%97+%E7%82%AD%E7%81%AB%E7%84%BC%E8%82%89+%E4%BD%90%E8%B3%80" target="_blank" rel="noopener" class="btn btn-accent">Googleで予約する</a>
+        <details class="gourmet">
+          <summary>ぐるなび・食べログ・ホットペッパーで予約 ▾</summary>
+          <div class="links">
+            <a href="https://r.gnavi.co.jp/plan/g25c5gxk0000/plan-reserve/plan/plan_list/" target="_blank" rel="noopener">▸ ぐるなび でネット予約</a>
+            <a href="https://tabelog.com/saga/A4101/A410101/41008050/" target="_blank" rel="noopener">▸ 食べログ で予約</a>
+            <a href="https://www.hotpepper.jp/strJ003850082/" target="_blank" rel="noopener">▸ ホットペッパー で予約</a>
+          </div>
+        </details>
+        <a href="tel:+81508881239" style="color:#e7c7c1;font-size:13px;letter-spacing:.1em;">お電話でも承ります — 050-8888-1239</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="wrap" style="max-width:800px;">
+      <div class="center" style="margin-bottom:34px;">
+        <span class="label">FAQ</span>
+        <h2 class="heading">よくあるご質問</h2>
+      </div>
+      <div class="faq">
+        <details><summary>予約は必要ですか？</summary><p class="ans">22席のみの小さなお店です。ご予約をおすすめします（TEL 050-8888-1239）。</p></details>
+        <details><summary>外国語のメニューはありますか？</summary><p class="ans">はい。英語・韓国語・中国語（簡体字／繁体字）の店内メニューをご用意しています。English, Korean and Chinese menus available.</p></details>
+        <details><summary>営業時間・定休日は？</summary><p class="ans">年中無休、17:00〜24:00（ラストオーダー 23:00）です。</p></details>
+        <details><summary>カードやQR決済は使えますか？</summary><p class="ans">現金・クレジットカード（VISA / Master / JCB / AMEX）・QR / 電子マネー（PayPay・iD・QUICPay）すべてご利用いただけます。</p></details>
+        <details><summary>一人でも入れますか？</summary><p class="ans">カウンター席がありますので、お一人様も歓迎です。</p></details>
+        <details><summary>貸切はできますか？</summary><p class="ans">18〜22名様で貸切が可能です。</p></details>
+        <details><summary>アクセス・駐車場は？</summary><p class="ans">JR佐賀駅南口から徒歩4分、草場ビル2階。専用駐車場はありませんが近隣にコインパーキングがあります。</p></details>
+        <details><summary>禁煙ですか？</summary><p class="ans">全席禁煙です。</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="cols">
+        <div>
+          <span class="brand">田中商店<small style="letter-spacing:.3em;font-size:9px;">TANAKA SHOTEN</small></span>
+          <address>
+            〒840-0816 佐賀県佐賀市駅南本町3-8 草場ビル2F<br>
+            JR佐賀駅 南口 徒歩4分<br>
+            TEL <a href="tel:+81508881239">050-8888-1239</a><br>
+            17:00〜24:00（L.O.23:00）・年中無休
+          </address>
+        </div>
+        <div>
+          <h4>Menu</h4>
+          <nav class="fnav">
+            <a href="#about">田中商店について</a>
+            <a href="#menu">お品書き</a>
+            <a href="#access">アクセス</a>
+            <a href="#faq">よくあるご質問</a>
+            <a href="#reserve">ご予約</a>
+          </nav>
+        </div>
+        <div>
+          <h4>Follow</h4>
+          <nav class="fnav">
+            <a href="https://www.instagram.com/tanakashouten_yakiniku/" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://tabelog.com/saga/A4101/A410101/41008050/" target="_blank" rel="noopener">食べログ</a>
+            <a href="https://r.gnavi.co.jp/g25c5gxk0000/" target="_blank" rel="noopener">ぐるなび</a>
+            <a href="https://www.hotpepper.jp/strJ003850082/" target="_blank" rel="noopener">ホットペッパー</a>
+          </nav>
+        </div>
+      </div>
+      <p class="copy">© 2026 炭火焼肉 田中商店 TANAKA SHOTEN, Saga.</p>
+    </div>
+  </footer>
+
+  <script>
+    var hdr = document.getElementById('hdr');
+    function onScroll(){ hdr.classList.toggle('solid', window.scrollY > 40); }
+    window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+    var drawer = document.getElementById('drawer');
+    document.getElementById('burger').addEventListener('click', function(){ drawer.classList.add('open'); });
+    document.getElementById('close').addEventListener('click', function(){ drawer.classList.remove('open'); });
+    drawer.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ drawer.classList.remove('open'); }); });
+  </script>
+
+</body>
+
+</html>

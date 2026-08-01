@@ -1,0 +1,7 @@
+# 炭火焼肉 田中商店 — robots.txt
+# 全クローラーに全ページを許可（GoogleのAI検索は通常SEOと同じクロールを使う）
+User-agent: *
+Allow: /
+
+# ⚠️ 公開ドメイン未定。本番URLが決まったら下行を実URLに置換すること
+Sitemap: https://jumpei0530.github.io/tanaka-shoten/sitemap.xml
